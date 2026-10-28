@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <title>AI Research Studio</title>
+  <link rel="stylesheet" href="/frontend/style.css">
+</head>
+
+<body>
+  <header class="navbar">
+    <a class="brand" href="/">
+      <span class="brand-icon">R</span>
+      <span>Research<span class="accent">AI</span></span>
+    </a>
+    <span class="status"><span class="dot"></span> AI Research Engine</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">MULTI-AGENT INTELLIGENCE</div>
+      <h1>Research smarter.<br><span>Discover deeper.</span></h1>
+      <p>
+        Turn a research question into a structured report using
+        web search, source reading, AI writing and critical review.
+      </p>
+
+      <form id="research-form" class="search-box">
+        <label for="topic">What do you want to research?</label>
+        <textarea id="topic" name="topic" placeholder="e.g. How is Generative AI transforming healthcare?" minlength="3"
+          maxlength="500" required></textarea>
+        <div class="search-footer">
+          <span id="char-count">0 / 500</span>
+          <button id="submit-btn" type="submit">
+            <span id="button-label">Start Research</span>
+            <span aria-hidden="true"> →</span>
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section id="progress" class="progress-panel hidden">
+      <div class="spinner"></div>
+      <div>
+        <h3 id="progress-title">Research in progress...</h3>
+        <p id="progress-text">
+          Your agents are gathering and analysing information.
+        </p>
+      </div>
+    </section>
+
+    <section id="error-panel" class="error-panel hidden" role="alert">
+      <strong>Research failed</strong>
+      <p id="error-message"></p>
+    </section>
+
+    <section id="results" class="hidden">
+      <div class="results-heading">
+        <div>
+          <div class="eyebrow">YOUR RESEARCH RESULTS</div>
+          <h2 id="result-topic"></h2>
+        </div>
+        <button id="copy-report" class="secondary-btn" type="button">
+          Copy report
+        </button>
+      </div>
+
+      <div class="pipeline-grid">
+        <article class="agent-card">
+          <span class="agent-number">01</span>
+          <h3>Search Agent</h3>
+          <p>Finds relevant web information.</p>
+          <span class="agent-state">Completed</span>
+        </article>
+        <article class="agent-card">
+          <span class="agent-number">02</span>
+          <h3>Reader Agent</h3>
+          <p>Reads selected web resources.</p>
+          <span class="agent-state">Completed</span>
+        </article>
+        <article class="agent-card">
+          <span class="agent-number">03</span>
+          <h3>Writer Agent</h3>
+          <p>Creates the research report.</p>
+          <span class="agent-state">Completed</span>
+        </article>
+        <article class="agent-card">
+          <span class="agent-number">04</span>
+          <h3>Critic Agent</h3>
+          <p>Reviews the report quality.</p>
+          <span class="agent-state">Completed</span>
+        </article>
+      </div>
+
+      <article class="result-card main-report">
+        <div class="card-heading">
+          <div>
+            <span class="eyebrow">FINAL OUTPUT</span>
+            <h2>Research Report</h2>
+          </div>
+        </div>
+        <div id="report-content" class="report-content"></div>
+      </article>
+
+      <div class="detail-grid">
+        <article class="result-card">
+          <h3>🔎 Search Results</h3>
+          <details>
+            <summary>View search output</summary>
+            <pre id="search-content"></pre>
+          </details>
+        </article>
+
+        <article class="result-card">
+          <h3>📚 Scraped Content</h3>
+          <details>
+            <summary>View reader output</summary>
+            <pre id="scraped-content"></pre>
+          </details>
+        </article>
+      </div>
+
+      <article class="result-card critic-card">
+        <span class="eyebrow">QUALITY REVIEW</span>
+        <h2>Critic Feedback</h2>
+        <pre id="feedback-content"></pre>
+      </article>
+    </section>
+
+    <footer>
+      AI-generated research may contain errors. Verify important claims
+      against the original sources.
+    </footer>
+  </main>
+
+  <script src="/frontend/script.js"></script>
+</body>
+
+</html>
